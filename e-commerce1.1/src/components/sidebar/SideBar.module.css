@@ -1,0 +1,8 @@
+/* SideBar.module.css */
+.fixed-left {
+  position: fixed;
+  top: var(--topnav-height); /* Use the height of your TopNav */
+  left: 0;
+  z-index: 900;
+  width: auto;
+}

@@ -1,0 +1,16 @@
+/* TopNav.module.css */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: var(--topnav-height);
+}
+
+.nav-contents{
+  /* position: relative; */
+  display: inline-flex;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+}
