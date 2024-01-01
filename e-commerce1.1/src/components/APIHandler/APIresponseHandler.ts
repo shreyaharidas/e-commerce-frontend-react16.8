@@ -25,8 +25,9 @@ else Swal.fire({
     confirmButtonColor:"#048029"
   }).then(()=>
   // Redirect to the login page ...using this since not a functional component. otherwise, usenavigate hook
-  window.location.href = '/')
-
+  {if(window.location.href==="/registration")
+  window.location.href = '/'
+})
 }
 
 export {APIResponseHandler};

@@ -84,10 +84,8 @@ const readFileAsBuffer = async (file: any): Promise<string> => {
 
 const RegistrationHandler = () => {
 
-
-
   return (
-   <RegistrationPage register={register as RegisterFunction}/>
+   <RegistrationPage register={register}/>
   )
 }
 

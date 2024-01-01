@@ -80,7 +80,7 @@ const RegistrationPage = ({ register }:RegistrationPageProps) => {
               </Form.Control>
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100 mt-3" >
+             <Button variant="primary" type="submit" className="w-100 mt-3" >
               Register
             </Button>
           </Form>
