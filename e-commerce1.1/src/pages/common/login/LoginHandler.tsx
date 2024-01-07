@@ -19,7 +19,6 @@ const LoginHandler = () => {
       const e_mail = emailRef.current?.value || '';
       const password = passwordRef.current?.value || '';
       const client_type=clientRef.current?.value||'';
-      console.log("cliet", clientRef)
       // Call your API function to submit login details
       const response = await loginUser({ e_mail, password, client_type });
 

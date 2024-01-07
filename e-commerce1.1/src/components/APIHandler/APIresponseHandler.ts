@@ -3,7 +3,6 @@ import Swal from 'sweetalert2';
 import { APIResponseType } from './types';
 
 const APIResponseHandler=(res:AxiosError | APIResponseType, message?:string):void=>{
-console.log(res);
 if(axios.isAxiosError(res)){
 
     Swal.fire({

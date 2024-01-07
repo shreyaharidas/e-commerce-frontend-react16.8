@@ -1,0 +1,13 @@
+.card {
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+
+  .product-card {
+    width: calc(20%);
+    margin: calc(.5%)
+  }
+
+  .card-img{
+    width: 100px;
+    align-self: center;
+  }

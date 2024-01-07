@@ -1,8 +1,9 @@
 export type APIResponseType={
-    "data": object;
-    "status":number,
-    "statusText": string,
-    "headers": object,
-    "config": object,
-    "request": object
+    "data"?: object;
+    "message"?:string;
+    "status":number;
+    "statusText": string;
+    "headers": object;
+    "config": object;
+    "request": object;
 }

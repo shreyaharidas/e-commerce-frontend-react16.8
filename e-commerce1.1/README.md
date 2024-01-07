@@ -1,4 +1,9 @@
 # Getting Started with Create React App
 
-login api integration
-jwt axios middleware
+supplier pages
+- home
+- add products
+- edit products
+
+
+npm install --save-dev @types/react @types/react-dom
