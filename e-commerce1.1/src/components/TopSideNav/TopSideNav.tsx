@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import TopNav from '../navbar/TopNav';
 import Sidebar from '../sidebar/SideBar';
+import { TopSideNavProps } from './types';
 
-const TopSideNav = () => {
+const TopSideNav = ({children}:TopSideNavProps) => {
   return (
     <React.Fragment>
     <Row>
@@ -18,7 +19,7 @@ const TopSideNav = () => {
         <Sidebar />
       </Col>
       <Col xs={11} sm={10} md={10} lg={10} id="content-col" className="offset-sm-2 offset-md-2 offset-lg-2">
-        {/* Your main content goes here */}
+       {children}
       </Col>
     </Row>
     </React.Fragment>

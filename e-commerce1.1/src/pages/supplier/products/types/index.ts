@@ -21,6 +21,7 @@ export interface Product {
 
   export interface ProductCardProps {
     product: Product;
+    routeToProduct:(_id:string)=>void
   }
 
   export interface AddProductsProps {
@@ -40,4 +41,8 @@ export interface Product {
   export interface DynamicField {
     name: string;
     value: string;
+  }
+
+  export interface ApiProductResponse {
+    product: Product
   }

@@ -8,9 +8,9 @@ export interface RegistrationPageProps {
 }
 
 export interface FormInput {
-    full_name: string;
-    e_mail: string;
-    password: string;
-    client_type: 'supplier'|'customer',
-    profile_pic:string;
+    full_name: string|null;
+    e_mail: string|null;
+    password: string|null;
+    client_type: 'supplier'|'customer'|null,
+    profile_pic:File|null;
 }

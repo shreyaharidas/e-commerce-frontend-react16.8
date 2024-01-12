@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/App.css'
 import AppRoutes from './AppRoutes';
 
 const App = () => {
+
+
   return (
     <AppRoutes/>
   );

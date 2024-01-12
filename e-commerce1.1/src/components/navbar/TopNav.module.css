@@ -6,6 +6,7 @@
   width: 100%;
   z-index: 1000;
   height: var(--topnav-height);
+  background-color: #171A1F;
 }
 
 .nav-contents{

@@ -1,61 +1,45 @@
-import React, { MouseEvent } from 'react'
 import RegistrationPage from './RegistrationPage';
 import { FormInput, RegisterFunction } from './types';
 import { postSupplierRegistration } from './api/postSupplier';
 import { postCustomerRegistration } from './api/postCustomer';
-import { APIResponseHandler } from '../../../components/APIHandler/APIresponseHandler';
 import { readFileAsBuffer } from '../../../utils/readFileAsBuffer';
-
-
-export const register:RegisterFunction=async (e)=>{
-  e.preventDefault();
-
-  let formData= new FormData(e.target as HTMLFormElement);
-  let jsonFormData = '{';
-
-  await Promise.all(Array.from(formData.entries()).map(async ([key, value]) => {
-
-
-  if(typeof value==="string"){
-  jsonFormData += `"${key}": "${value}",`;
-  }
-  if(typeof value!=="string") {
-    let buffer = await readFileAsBuffer(value as object as File)
-    jsonFormData += `"${key}": "${buffer as string}",`;
-  };
-}));
-
-// Remove the trailing comma if there are key-value pairs
-if (jsonFormData.length > 1) {
-  jsonFormData = jsonFormData.slice(0, -1);
-}
-
-jsonFormData += '}';
-
-let jsonFormInput:FormInput=JSON.parse(jsonFormData);
-
-// const payloadString = JSON.stringify(jsonFormInput);
-
-// // Create a Blob object from the payload string
-// const payloadBlob = new Blob([payloadString]);
-
-// // Get the size of the payload in bytes
-// const payloadSize = payloadBlob.size;
-
-// console.log(`Payload size: ${payloadSize} bytes`);
-
-
-if (jsonFormInput.client_type==="supplier")
-await postSupplierRegistration(jsonFormInput);
-else await postCustomerRegistration(jsonFormInput);
-}
-
-
+import { useEffect, useState } from 'react';
 
 const RegistrationHandler = () => {
 
+  const [reg_details, setReg_details] = useState<FormInput>({
+    client_type: null,
+    full_name: null,
+    e_mail: null,
+    password: null,
+    profile_pic: null,
+  })
+
+
+  const register: RegisterFunction = (e) => {
+    e.preventDefault();
+
+    let formData = new FormData(e.target as HTMLFormElement);
+    console.log(formData.get("profile_pic"))
+    setReg_details({
+      client_type: formData.get("client_type") as FormInput["client_type"],
+      full_name: formData.get("full_name") as string,
+      e_mail: formData.get("e_mail") as string,
+      password: formData.get("password") as string,
+      profile_pic: (formData.get("profile_pic") as File),
+    })
+  }
+
+  useEffect(() => {
+    if (reg_details.client_type === "supplier")
+      postSupplierRegistration(reg_details);
+    else postCustomerRegistration(reg_details);
+
+  }, [reg_details])
+
+
   return (
-   <RegistrationPage register={register}/>
+    <RegistrationPage register={register} />
   )
 }
 

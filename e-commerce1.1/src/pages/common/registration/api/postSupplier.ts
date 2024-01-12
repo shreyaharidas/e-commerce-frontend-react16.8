@@ -5,8 +5,16 @@ import { APIResponseHandler } from "../../../../components/APIHandler/APIrespons
 import { APIResponseType } from "../../../../components/APIHandler/types"
 import { AxiosError } from "axios"
 
-export const postSupplierRegistration=async (formInput:FormInput):Promise<void>=>{
-   return await axiosInstance.post(`${baseUrl.supplier}/supplierRegistration`,{...formInput})
+export const postSupplierRegistration=async (formData:FormInput):Promise<void>=>{
+   return await axiosInstance.post(
+      `${baseUrl.supplier}/supplierRegistration`,
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    )
    .then(res=>APIResponseHandler(res as APIResponseType,"Registration Successful"))
    .catch(err=>APIResponseHandler(err as AxiosError))
 }

@@ -8,8 +8,6 @@ import { APIResponseType } from "../../../../components/APIHandler/types";
 
 export const addProducts=async(productData:ProductData):Promise<void>=>{
 
-console.log(productData);
-
 await axiosInstance.post(`${baseUrl.supplier}/addProducts`,{...productData})
 .then(res=>APIResponseHandler(res as APIResponseType, "Addition Successful!"))
 .catch(err=>APIResponseHandler(err as AxiosError))

@@ -5,8 +5,8 @@ import { APIResponseHandler } from "../../../../components/APIHandler/APIrespons
 import { GetProductsResponse } from "../types";
 
 
-export const getProductsForSupplier = (supplierRegId: string): Promise<GetProductsResponse|void> => {
-    return axiosInstance.get(`${baseUrl.supplier}/getProductsSupplier?supplier_reg_id=${supplierRegId}`)
+export const getProductsForSupplier = async(supplierRegId: string): Promise<GetProductsResponse|void> => {
+    return await axiosInstance.get(`${baseUrl.supplier}/getProductsSupplier?supplier_reg_id=${supplierRegId}`)
       .then((response: AxiosResponse<GetProductsResponse>) => response.data)
       .catch((err) => APIResponseHandler(err as AxiosError));
   };
