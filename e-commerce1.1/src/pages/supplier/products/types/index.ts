@@ -11,11 +11,11 @@ export interface Product {
   }
 
   export interface ProductData {
-    product_name: string;
-    product_category: string;
-    product_price: string;
-    product_stock: number;
-    product_photo: string; // This should be a base64-encoded string
+    product_name: string|null;
+    product_category: string|null;
+    product_price: string|null;
+    product_stock: string|null;
+    product_photo: File| null; // This should be a base64-encoded string
     [key: string]: any;
   };
 
@@ -25,16 +25,9 @@ export interface Product {
   }
 
   export interface AddProductsProps {
-    
-    nameRef:React.RefObject<HTMLInputElement>;
-    categoryRef:React.RefObject<HTMLInputElement>;
-    priceRef:React.RefObject<HTMLInputElement>;
-    stockRef:React.RefObject<HTMLInputElement>;
-    onFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onAddProduct: (newFields: DynamicField[] | never[]) => Promise<void>;
+    submit: (e:React.FormEvent,newFields: DynamicField[] | never[]) => Promise<void>;
     handleAddField: () => void;
     handleFieldChange: (index: number, fieldName: string, fieldValue: string) => void;
-    submit:()=>void;
     additionalFields: never[] | DynamicField[];
   }
 
@@ -45,4 +38,8 @@ export interface Product {
 
   export interface ApiProductResponse {
     product: Product
+  }
+
+  export interface UniqueProductProps {
+    product: Product | null;
   }

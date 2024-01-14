@@ -3,10 +3,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 import TopNav from '../navbar/TopNav';
 import Sidebar from '../sidebar/SideBar';
 import { TopSideNavProps } from './types';
+import ToggleContext from './TopNavContext';
 
 const TopSideNav = ({children}:TopSideNavProps) => {
   return (
-    <React.Fragment>
+    <ToggleContext>
     <Row>
       {/* Top Navigation */}
       <Col xs={12} id="topnav-col">
@@ -22,7 +23,7 @@ const TopSideNav = ({children}:TopSideNavProps) => {
        {children}
       </Col>
     </Row>
-    </React.Fragment>
+    </ToggleContext>
   )
 }
 

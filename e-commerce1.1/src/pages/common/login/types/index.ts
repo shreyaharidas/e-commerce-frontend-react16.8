@@ -12,6 +12,7 @@ export interface LoginPageProps {
   }
   
 export type LoginResponse={
+    client_type: string;
     token:string;
     registration_id:string;
 }

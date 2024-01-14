@@ -1,15 +1,14 @@
 // AddProductsPage.tsx
-import React, { useState } from 'react';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
-import { AddProductsProps, DynamicField } from './types';
+import { AddProductsProps} from './types';
 
-const AddProductsPage  = ({ nameRef, categoryRef, priceRef, stockRef,onFileChange, onAddProduct,handleFieldChange,handleAddField,additionalFields, submit }:AddProductsProps) => {
+const AddProductsPage  = ({ handleFieldChange,handleAddField,additionalFields, submit }:AddProductsProps) => {
 
 
   return (
     <Container className="mt-4">
       <h2>Add Products</h2>
-      <Form>
+      <Form onSubmit={(e)=>submit(e,additionalFields)}>
         <Row className="mb-3">
           <Col>
             <Form.Label>Product Name</Form.Label>
@@ -17,7 +16,6 @@ const AddProductsPage  = ({ nameRef, categoryRef, priceRef, stockRef,onFileChang
               type="text"
               placeholder="Enter product name"
               name="product_name"
-              ref={nameRef}
               required
             />
           </Col>
@@ -27,7 +25,6 @@ const AddProductsPage  = ({ nameRef, categoryRef, priceRef, stockRef,onFileChang
               type="text"
               placeholder="Enter product category"
               name="product_category"
-              ref={categoryRef}
               required
             />
           </Col>
@@ -37,7 +34,6 @@ const AddProductsPage  = ({ nameRef, categoryRef, priceRef, stockRef,onFileChang
               type="text"
               placeholder="Enter product price"
               name="product_price"
-              ref={priceRef}
               required
             />
           </Col>
@@ -46,8 +42,7 @@ const AddProductsPage  = ({ nameRef, categoryRef, priceRef, stockRef,onFileChang
             <Form.Control
               type="number"
               placeholder="Enter product stock"
-              name="product_category"
-              ref={stockRef}
+              name="product_stock"
               required
             />
           </Col>
@@ -88,18 +83,15 @@ const AddProductsPage  = ({ nameRef, categoryRef, priceRef, stockRef,onFileChang
             <Form.Control
               type="file"
               accept="image/*"
-              onChange={onFileChange}
+              name="product_photo"
               required
             />
           </Col>
         </Row>
 
         <Row>
-          <Col>
-            <Button variant="primary" type="button" className="mx-1" onClick={() => onAddProduct( additionalFields )}>
-              Add Product
-            </Button>
-            <Button variant='success' type='button' className="mx-1" onClick={submit}>Submit Product</Button>
+          <Col> 
+            <Button variant='success' type='submit' className="mx-1">Submit Product</Button>
           </Col>
         </Row>
       </Form>

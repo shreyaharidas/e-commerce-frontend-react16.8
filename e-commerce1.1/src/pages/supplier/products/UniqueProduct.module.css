@@ -12,17 +12,13 @@
     margin-bottom: 20px;
   }
   
-  .product-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
   
   .product-detail {
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     border-radius: 8px;
     padding: 15px;
+    margin: 5px;
   }
   
   .detail-label {
@@ -39,6 +35,14 @@
     justify-content: center;
     align-items: center;
     height: 100px;
+  }
+
+  .product_photo{
+    text-align: center;
+  }
+
+  .product_photo_img{
+    width: 25%;
   }
   
   /* You can customize these styles based on your design preferences */

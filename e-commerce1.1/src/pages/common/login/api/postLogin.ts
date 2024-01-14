@@ -13,8 +13,6 @@ export const loginUser = async (loginFormInput: LoginFormInput): Promise<void | 
   )
     .then((res) => {
       APIResponseHandler(res as APIResponseType, "Login Successful");
-      localStorage.setItem("jwt", res.data.token);
-      localStorage.setItem("registration_id", res.data.registration_id);
       return res.data as LoginResponse;
     })
     .catch((err) => APIResponseHandler(err as AxiosError));

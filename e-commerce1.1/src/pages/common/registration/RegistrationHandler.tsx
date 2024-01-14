@@ -20,7 +20,6 @@ const RegistrationHandler = () => {
     e.preventDefault();
 
     let formData = new FormData(e.target as HTMLFormElement);
-    console.log(formData.get("profile_pic"))
     setReg_details({
       client_type: formData.get("client_type") as FormInput["client_type"],
       full_name: formData.get("full_name") as string,
@@ -33,7 +32,8 @@ const RegistrationHandler = () => {
   useEffect(() => {
     if (reg_details.client_type === "supplier")
       postSupplierRegistration(reg_details);
-    else postCustomerRegistration(reg_details);
+      if (reg_details.client_type === "customer")
+       postCustomerRegistration(reg_details);
 
   }, [reg_details])
 

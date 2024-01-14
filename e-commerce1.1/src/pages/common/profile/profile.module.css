@@ -1,0 +1,20 @@
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+  
+  .profilePic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profileDetails {
+    margin-top: 20px;
+  }
+  
+  .resetPasswordBtn {
+    margin-top: 20px;
+  }

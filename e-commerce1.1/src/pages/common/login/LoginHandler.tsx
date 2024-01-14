@@ -21,12 +21,13 @@ const LoginHandler = () => {
       const client_type=clientRef.current?.value||'';
       // Call your API function to submit login details
       const response = await loginUser({ e_mail, password, client_type });
-
-      // Handle successful login here
-      console.log('Login successful', response);
-
+ if(response?.token){
       // Redirect to a dashboard or home page
-      navigate(`/${client_type}-home`);
+      localStorage.setItem("jwt", response?.token);
+      localStorage.setItem("registration_id", response?.registration_id);
+      localStorage.setItem("role", response?.client_type)
+      navigate(`/${response?.client_type}-home`);
+ }
     } catch (error) {
       // Handle login error
       console.error('Login failed', error);
