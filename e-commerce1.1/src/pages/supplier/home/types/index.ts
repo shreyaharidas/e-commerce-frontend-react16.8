@@ -1,6 +1,7 @@
 import { Product } from "../../products/types";
  
   export interface GetProductsResponse {
+    count: number;
     products: Product[];
   }
 

@@ -66,7 +66,6 @@ const AddProductsHandler = () => {
     ){
         addProducts(productData);
         // Redirect or perform other actions after successful product addition
-        navigate("/supplier-home"); // Replace with the appropriate route
     }
   }, [productData]);
 

@@ -4,9 +4,8 @@ export interface Product {
     product_name: string;
     product_category: string;
     product_price: string;
-    product_stock: number;
+    product_stock: number|string;
     product_photo: string;
-    colour: string;
     [key: string]: any;
   }
 

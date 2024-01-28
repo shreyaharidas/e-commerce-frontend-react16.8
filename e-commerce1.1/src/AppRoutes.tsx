@@ -8,11 +8,15 @@ import UniqueProduct from './pages/supplier/products/UniqueProduct'
 import UniqueProductHandler from './pages/supplier/products/UniqueProductHandler'
 import TopSideNav from './components/TopSideNav/TopSideNav'
 import ProfileHandler from './pages/common/profile/ProfileHandler'
+import AuthContext from './components/Authentication/AuthContext'
+import CustomerHome from './pages/customer/home/CustomerHome'
+import CustomerHandler from './pages/customer/home/CustomerHandler'
 
 const AppRoutes = () => {
 
   return (
    <BrowserRouter>
+   <AuthContext>
    <Routes>
     <Route path="/" element={<LoginHandler/>}></Route>
     <Route path="/registration" element={<RegistrationHandler/>}></Route>
@@ -20,7 +24,9 @@ const AppRoutes = () => {
     <Route path="/add-product" element={<TopSideNav><AddProductsHandler/></TopSideNav>}></Route>
     <Route path="/products/:_id" element={<TopSideNav><UniqueProductHandler/></TopSideNav>}></Route>
     <Route path="/profile" element={<TopSideNav><ProfileHandler/></TopSideNav>}></Route>
+    <Route path="/customer-home" element={<TopSideNav><CustomerHandler/></TopSideNav>}></Route>
    </Routes>
+   </AuthContext>
    </BrowserRouter>
   )
 }

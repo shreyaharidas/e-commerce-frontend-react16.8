@@ -4,11 +4,13 @@ import styles from "./TopNav.module.css";
 import { List } from "react-bootstrap-icons";
 import { ToggleSideBar } from "../TopSideNav/TopNavContext";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../Authentication/logout";
+import { Authorization } from "../Authentication/AuthContext";
+
 
 const TopNav = () => {
 
 const navigate= useNavigate();
+const {logout}= useContext(Authorization)
 
   const {toggleFunction}= useContext(ToggleSideBar);
 

@@ -8,7 +8,7 @@ import { AxiosError } from "axios"
 export const postSupplierRegistration=async (formData:FormInput):Promise<void>=>{
    return await axiosInstance.post(
       `${baseUrl.supplier}/supplierRegistration`,
-      formData,
+     formData,
       {
         headers: {
           'Content-Type': 'multipart/form-data',
