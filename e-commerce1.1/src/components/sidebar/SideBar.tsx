@@ -19,7 +19,7 @@ const Sidebar = () => {
 
   return (
     <>
-      {toggle && (
+      
         <Nav className={`flex-column ${styles["fixed-left"]}`}>
           <Nav.Link className="text-white m-2" href={`${baseFE.local}${localStorage.getItem("role")}-home`}>
             Home
@@ -43,7 +43,7 @@ const Sidebar = () => {
             Category 7
           </Nav.Link>
         </Nav>
-      )}
+      
     </>
   );
 };

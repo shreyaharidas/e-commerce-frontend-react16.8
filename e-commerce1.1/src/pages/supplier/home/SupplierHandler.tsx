@@ -10,7 +10,7 @@ import { Pagination } from "react-bootstrap";
 import CustomPagination from "../../../components/Pagination/Pagination";
 import CustomSearchBar from "../../../components/SearchSort/SearchSort";
 
-const SupplierHandler: React.FC = () => {
+const SupplierHandler = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
   const [offset, setOffset] = useState<number>(0);
@@ -52,18 +52,21 @@ const SupplierHandler: React.FC = () => {
   //   };
   // }, []); // Run this effect only once when the component mounts
 
+
   const fetchProducts = async () => {
     try {
+     
       const response = await getProductsForSupplier(
-        localStorage.getItem("registration_id") ?? "",
+        localStorage.getItem("registration_id")??"",
         offset,
         sortBy,
         sorting,
         search
-      ); //"766486"
+      ); 
       response?.products && setProducts(response?.products);
       response?.count && setCount(response?.count);
       setLoading(false);
+      
     } catch (error) {
       console.error("Error fetching products:", error);
       setLoading(false);
@@ -75,7 +78,9 @@ const SupplierHandler: React.FC = () => {
   };
 
   useEffect(() => {
+    if(localStorage.getItem("registration_id")){
     fetchProducts();
+    }
   }, [offset, sorting, search,sortBy]);
 
   return (

@@ -24,7 +24,7 @@ const AuthContext = ({ children }: { children: ReactNode }) => {
 
   const logout = () => {
     localStorage.clear();
-    window.location.href = "/";
+    navigate("/");
   };
 
   return (

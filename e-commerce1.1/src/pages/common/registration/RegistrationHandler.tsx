@@ -21,9 +21,6 @@ const RegistrationHandler = () => {
 
     let formData = new FormData(e.target as HTMLFormElement);
 
-    // for (const pair of formData.entries()) {
-    //   console.log(pair[0], pair[1]);
-    // }
     setReg_details({
       client_type: formData.get("client_type") as FormInput["client_type"],
       full_name: formData.get("full_name") as string,
